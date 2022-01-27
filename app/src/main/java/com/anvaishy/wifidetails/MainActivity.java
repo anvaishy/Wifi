@@ -40,6 +40,5 @@ public class MainActivity extends AppCompatActivity {
     public void reset(View view) {
         rs=findViewById(R.id.rssi);
         rs.setText("RSSI:-"+getWifiStrengthPercentage(MainActivity.this)+"%");
-
     }
 }
