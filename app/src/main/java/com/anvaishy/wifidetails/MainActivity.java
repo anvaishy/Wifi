@@ -17,17 +17,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         rs=findViewById(R.id.rssi);
         rs.setText("RSSI:-"+getWifiStrengthPercentage(MainActivity.this)+"%");
-
-
     }
-
     public static double getWifiStrengthPercentage(Context context)
     {
         try
         {
             WifiManager wifiManager = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
             int rssi = wifiManager.getConnectionInfo().getRssi();
-            int level = wifiManager.calculateSignalLevel(rssi);
+            double level = wifiManager.calculateSignalLevel(rssi,100);
             double percentage =((level/10.0)*10);
             return percentage;
         }
@@ -36,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
             return 0.0F;
         }
     }
-
     public void reset(View view) {
         rs=findViewById(R.id.rssi);
         rs.setText("RSSI:-"+getWifiStrengthPercentage(MainActivity.this)+"%");
