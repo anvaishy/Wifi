@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         {
             WifiManager wifiManager = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
             int rssi = wifiManager.getConnectionInfo().getRssi();
-            double level = WifiManager.calculateSignalLevel(rssi, 100);
+            int level = wifiManager.calculateSignalLevel(rssi);
             double percentage =((level/10.0)*10);
             return percentage;
         }
